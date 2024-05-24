@@ -78,8 +78,9 @@ The user has provided solar electricity generation and usage data for 2020 (hour
 
 ### Scenarios to Analyze
 
-Scenario 1: Assuming electricity prices increase as expected (4% p.a.).
-Scenario 2: Considering the user’s estimated price increases (starting at 4% p.a. and rising by 0.25% p.a.).
+1. Scenario 1: Assuming electricity prices increase as expected (4% p.a.).
+
+2. Scenario 2: Considering the user’s estimated price increases (starting at 4% p.a. and rising by 0.25% p.a.).
 
 ### Calculations
 

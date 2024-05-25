@@ -32,7 +32,9 @@ This data will be crucial for our analysis. Feel free to provide the specific da
 
 ## Tools
 
-- Python notebook - for cleaning, analysis and documentation
+1. Jupyter notebook - for cleaning, analysis and documentation [Guidance to installation](https://docs.jupyter.org/en/latest/install/notebook-classic.html)
+2. Python. [Install](https://www.python.org/downloads/release/python-3123/)
+
 The following Libraries will be essential;
 ```Python
 import numpy as np     # Mathematical calculations 

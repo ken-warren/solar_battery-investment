@@ -50,7 +50,7 @@ If the above Libraries are not yet installed,you can follow the following steps:
 ```cmd
 pip install numpy
 pip install pandas
-pip install matplotlib 
+pip install matplotlib.pyplot
 pip install seaborn
 ```
 

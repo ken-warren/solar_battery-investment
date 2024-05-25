@@ -39,7 +39,7 @@ The following Libraries will be essential;
 ```Python
 import numpy as np     # Mathematical calculations 
 import pandas as pd    # Data manipulation 
-import matplotlib as plt # Data visualization 
+import matplotlib.pyplot as plt # Data visualization 
 import seaborn as stl  # Reading data (Excel)
 ```
 

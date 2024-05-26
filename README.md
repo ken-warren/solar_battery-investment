@@ -37,7 +37,7 @@ This data will be crucial for our analysis. Feel free to provide the specific da
 
 The following Libraries will be essential;
 ```Python
-import numpy as np     # Mathematical calculations 
+import numpy_financial as npf     # Financial calculations eg calculation of IRR
 import pandas as pd    # Data manipulation 
 import matplotlib.pyplot as plt # Data visualization 
 import seaborn as stl  # Reading data (Excel)
@@ -48,10 +48,7 @@ If the above Libraries are not yet installed,you can follow the following steps:
 2. Copy and paste each of the following lines:
 
 ```cmd
-pip install numpy
-pip install pandas
-pip install matplotlib.pyplot
-pip install seaborn
+pip install numpy_finacial, pandas, matplotlib.pyplot, seaborn
 ```
 
 This will get your python environment ready for analysis.
@@ -96,7 +93,11 @@ Remember, the IRR represents the discount rate where NPV equals the initial cost
 
 💡
 
-## Results 
+## Results
+
+<img src="Users\ADMIN\solar_battery savings\avg_solar.png"></img>
+
+The NPV for future projections in both scenarios had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
 
 ## Conclusions
 

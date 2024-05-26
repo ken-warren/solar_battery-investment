@@ -1,12 +1,12 @@
 # Import required libraries
-import numpy as np                # Mathematical functions
+import numpy_financial as npf     # Financial functions eg IRR
 import pandas as pd               # data manipulation
 import matplotlib.pyplot as plt   # data visualization
 import seaborn as sns
 import openpyxl as pxl            # reading excel file
 
 # Load the data using your own file path
-data = pd.read_excel("C:\\Users\\ADMIN\\solar_battery savings\\solar-savings\\Dataset\\2020_solar_Data.xlsx", parse_dates=['date'])
+data = pd.read_excel("2020_solar_Data.xlsx", parse_dates=['date'])
 
 # View the the dataset
 print(data.dtypes, data.head())
@@ -109,15 +109,144 @@ print(hourly_battery_charge)
 electricity_price = 0.17  # USD
 
 # Electricity consumption without battery
-data['electricity_wout_bat'] = data.apply(lambda row: row['electricity_needed'] if row['battery_charge'] == 0 else 0, axis=1)
+data['electricity_wout_bat'] = data['electricity_needed']
 
 # Savings
 electricity_saved = (data['electricity_wout_bat'] - data['electricity_w_bat']).clip(lower=0)
 saving_cost = electricity_saved * electricity_price
 data['savings'] = saving_cost
 hourly_savings = data.groupby('hour')['savings'].sum()
-total_savings = data['savings'].sum()
+annual_savings = data['savings'].sum()
 print(data[['hour', 'date', 'savings']].head())
 print("Hourly Savings for 2020:\n", round(hourly_savings,2))
-print("Total Savings for 2020:", round(total_savings,2))
+print("Annual Savings for 2020:", round(annual_savings,2))
 
+# Extract month from the date
+data['month'] = data['date'].dt.strftime('%B')
+
+# Order the months for better visualization
+month_order = ["January", "February", "March", "April", "May", "June",
+               "July", "August", "September", "October", "November", "December"]
+data['monthly'] = data['month'].reindex(month_order)
+
+# Monthly tabulation
+monthly_solar = data.groupby('month')['solar'].sum()
+monthly_electricity = data.groupby('month')['electricity'].sum()
+monthly_electricity_wout_bat = data.groupby('month')['electricity_needed'].sum()
+monthly_electricity_w_bat = data.groupby('month')['electricity_w_bat'].sum()
+
+monthly_data = pd.DataFrame({
+    'Monthly Solar Generation (kWh)': monthly_solar,
+    'Monthly Electricity Usage (kWh)': monthly_electricity,
+    'Monthly Electricity Purchased (No Battery)': monthly_electricity_wout_bat,
+    'Monthly Electricity Purchased (with battery)': monthly_electricity_w_bat
+})
+
+
+#Plot the data
+plt.figure(figsize=(14, 7))
+
+# Plot Monthly Solar Generation
+plt.subplot(2, 2, 1)
+monthly_solar.plot(kind='bar', color='gold')
+plt.title('Monthly Solar Generation (2020)')
+plt.xlabel('Month')
+plt.ylabel('kWh')
+plt.grid(True)
+
+# Plot Monthly Electricity Usage
+plt.subplot(2, 2, 2)
+monthly_electricity.plot(kind='bar', color='lightblue')
+plt.title('Monthly Electricity Usage (2020)')
+plt.xlabel('Month')
+plt.ylabel('kWh')
+plt.grid(True)
+
+# Plot Monthly Electricity Purchased (No Battery)
+plt.subplot(2, 2, 3)
+monthly_electricity_wout_bat.plot(kind='bar', color='lightgreen')
+plt.title('Monthly Electricity Purchased (No Battery) (2020)')
+plt.xlabel('Month')
+plt.ylabel('kWh')
+plt.grid(True)
+
+# Plot Monthly Electricity Purchased (with battery)
+plt.subplot(2, 2, 4)
+monthly_electricity_w_bat.plot(kind='bar', color='blue')
+plt.title('Monthly Electricity Purchased (with battery) (2020)')
+plt.xlabel('Month')
+plt.ylabel('kWh')
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+
+# Calculation of future projections
+# Annual Savings
+savings_2022 = sum(data['savings'])
+print('The projected annual savings for 2022 is:', round(savings_2022, 2))
+
+# Inialize a list for initial investment on battery
+cost_savings1 = [-7000]
+
+# initialize the values
+r1 = 0.04              # price increase rate (4% p.a)
+years = range(0, 20)
+
+# Cost savings per year
+for i in years:
+    yearly_savings = savings_2022 * (1 + r1) ** i
+    
+    # append to the initial investment
+    cost_savings1.append(yearly_savings)
+    
+print(cost_savings1)
+# NPV calculation for scenario 1
+
+# Initialize the values
+dr = 0.06         # discount rate of 6% p.a
+npv_vals1 = []
+
+for i,c in enumerate(cost_savings):
+    discount_val = c / (1 + dr) **i
+    npv_vals1.append(discount_val)
+    
+npv1 = sum(npv_vals1)
+print('Total NPV for scenario 1:', round(npv1, 2))
+
+# Initialize the values 
+r2 = 0.0025
+cost_savings2 = [-7000]
+
+# Yearly cost savings in scenario 2
+for i in years:
+    
+    # The first years increase is 4% p.a
+    if i == 0: 
+        yearly_savings = savings_2022 * (1 + r1) **i
+    else:
+        yearly_savings = savings_2022 * (1 + (r1 + ((i) * r2))) **i
+        cost_savings2.append(yearly_savings)
+print(cost_savings2)
+
+# NPV for Scenario 2
+# initialize the values
+npv_vals2 = []
+
+for i,c in enumerate(cost_savings2):
+    discount_vals = c / (1 + dr) **i
+    npv_vals2.append(discount_vals)
+    
+npv2 = sum(npv_vals2)
+print('Total NPV for scenario 2:', round(npv2, 2))
+
+# Calculating IRR
+
+#Scenario 1: 4% p.a
+IRR1 = round(npf.irr(npv_vals1), 2)
+
+# Scenario 2: 4% p.a + 0.25% p.a
+IRR2 = round(npf.irr(npv_vals2), 2)
+
+print('IRR for scenario 1:', IRR1)
+print('IRR for scenario 2:', IRR2)

@@ -95,8 +95,6 @@ Remember, the IRR represents the discount rate where NPV equals the initial cost
 
 ## Results
 
-<img src="Users\ADMIN\solar_battery savings\avg_solar.png"></img>
-
 The NPV for future projections in both scenarios had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
 
 ## Conclusions

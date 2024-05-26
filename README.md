@@ -1,4 +1,4 @@
-# Economic Analysis of Solar Energy
+# Economic Analysis of Investment in a Solar Battery 
 
 ---
 

@@ -99,6 +99,8 @@ The NPV for future projections in both scenarios had negative values suggesting 
 
 ## Conclusions
 
+By calculating the NPV and IRR of investment in installation of a solar battery, the project was deduced to be unworthy and not desirable. 
+
 ## Recommendations
 
 ## Reference

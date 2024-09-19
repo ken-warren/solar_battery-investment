@@ -113,16 +113,20 @@ plot()
 
 The table below shows the overall hourly calculations for the first 12 hours:
 
-|Avg solar usage|Avg electricity usage|electricity needed|Excess solar|Cumulative battery charge|net electricity consumption with battery|Savings|
-|---|---|---|---|---|---|---|
-||||||||
-||||||||
-||||||||
-||||||||
-||||||||
-||||||||
-||||||||
-
+|Hour|Average Solar Usage|Average Electricity Usage|Electricity Needed|Excess Solar|Cumulative Battery Charge|Electricity Consumption With Battery|Savings|
+|---|---|---|---|---|---|---|---|
+|0||||||||
+|1||||||||
+|2||||||||
+|3||||||||
+|4||||||||
+|5||||||||
+|6||||||||
+|7||||||||
+|8||||||||
+|9||||||||
+|1o||||||||
+|11||||||||
 
 The NPV for future projections in both scenarios had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
 

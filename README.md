@@ -56,7 +56,7 @@ This will get your python environment ready for analysis.
 ## Data Cleaning 
 
 This phase includes:
-1. Finding and correcting missing values
+1. Finding and dropping missing values
 2. Inspection of duplicates 
 3. Deletion of negative values
 4. Inspection of outliers and correcting them.
@@ -94,6 +94,35 @@ Remember, the IRR represents the discount rate where NPV equals the initial cost
 💡
 
 ## Results
+1. **Data Cleaning**
+- There were no missing values in the provided data set.
+- There were no duplicates in the rows of the data set.
+- All the negative values were omitted to ensure no distortion in the analysis.
+- There were extreme outliers in electricity usage since the maximum value (46000 KWh) is more than four times the mean (7.319 KWh) and median (0.621 KWh). To correct the outliers, the extreme values were replaced with the median of the variable. Using the IQR method, the outliers were plotted as shown below.
+
+(Image)
+
+2. **Data Analysis**
+*Average Electricity Usage*
+
+plot()
+
+*Inferences*:
+- Hours 18-23 have high electricity needed compared to the other hours in 2020.
+- Excess solar electricity is generated between 8-15 hours
+
+The table below shows the overall hourly calculations for the first 12 hours:
+
+|Avg solar usage|Avg electricity usage|electricity needed|Excess solar|Cumulative battery charge|net electricity consumption with battery|Savings|
+|---|---|---|---|---|---|---|
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+
 
 The NPV for future projections in both scenarios had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
 

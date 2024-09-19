@@ -10,9 +10,9 @@
 - [Data Cleaning](#data-cleaning)
 - [Data Analysis](#data-analysis)
 - [Results](#results)
+- [NPV & IRR](#npv--irr)
 - [Conclusion](#conclusion)
 - [Recommendations](#recommendations)
-- [Reference](#reference)
 
 ---
 
@@ -94,7 +94,9 @@ Remember, the IRR represents the discount rate where NPV equals the initial cost
 💡
 
 ## Results
+
 1. **Data Cleaning**
+
 - There were no missing values in the provided data set.
 - There were no duplicates in the rows of the data set.
 - All the negative values were omitted to ensure no distortion in the analysis.
@@ -103,37 +105,52 @@ Remember, the IRR represents the discount rate where NPV equals the initial cost
 (Image)
 
 2. **Data Analysis**
-*Average Electricity Usage*
+
+*Hourly Solar Energy and Electricity Usage*
 
 plot()
 
-*Inferences*:
-- Hours 18-23 have high electricity needed compared to the other hours in 2020.
-- Excess solar electricity is generated between 8-15 hours
 
 The table below shows the overall hourly calculations for the first 12 hours:
 
-|Hour|Average Solar Usage|Average Electricity Usage|Electricity Needed|Excess Solar|Cumulative Battery Charge|Electricity Consumption With Battery|Savings|
+|Hour|Average Solar Usage (KWh)|Average Electricity Usage (KWh)|Electricity Needed (KWh)|Excess Solar (KWh)|Cumulative Battery Charge (KWh)|Electricity Consumption With Battery (KWh)|Savings ($)|
 |---|---|---|---|---|---|---|---|
-|0||||||||
-|1||||||||
-|2||||||||
-|3||||||||
-|4||||||||
-|5||||||||
-|6||||||||
-|7||||||||
-|8||||||||
-|9||||||||
-|1o||||||||
-|11||||||||
+|0|0.000|0.777|283.654|0.000|0.000|283.654|0.00|
+|1|0.000|0.402|146.542|0.000|1.412|145.106|0.24|
+|2|0.000|0.251|91.478|0.000|2.436|90.454|0.17|
+|3|0.000|0.408|148.806|0.000|3.078|148.164|0.11|
+|4|0.079|0.552|179.531|6.711|0.000|172.679|1.16|
+|5|0.271|0.611|174.193|50.010|0.000|157.564|2.83|
+|6|0.723|1.223|322.020|139.593|0.000|275.367|7.93|
+|7|1.395|1.478|366.399|336.018|0.000|290.979|12.82|
+|8|2.085|1.301|279.744|565.341|0.000|224.670|9.36|
+|9|2.243|1.084|200.682|623.748|0.000|145.080|9.45|
+|10|2.134|0.826|130.602|607.830|0.000|95.646|5.94|
+|11|1.984|0.837|146.340|564.981|0.000|107.424|6.62|
 
-The NPV for future projections in both scenarios had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
+*Inferences*
+- Hours 18-23 have high electricity needed compared to the other hours in 2020.
+- Excess solar electricity is generated between 8-15 hours
+- Hours 1 to 3 have high charge levels with hour 3 having the maximum charge level recorded in 2020 (3.078 kWh).
+- Hour 17 to 23 recorded high amounts of electricity bought assuming the solar battery had already been installed.
+- Hours 4 to 19 recorded significant savings with 7th hour of all days in 2020 having the maximum savings of *$12.82*. The annual savings for 2020 was *$122*.
 
-## Conclusions
+*Monthly Solar Energy and Electricity Usage*
 
-By calculating the NPV and IRR of investment in installation of a solar battery, the project was deduced to be unworthy and not desirable. 
+(image)
+
+3. **Future Projections**
+
+*NPV & IRR*
+
+The NPV for future projections in both scenario 1 and 2 (-4465.01, -4357.52) had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios (-0.05, -0.08) had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
+
+## Conclusion
+
+The analysis reveals that while installing a battery to store excess solar-generated electricity can theoretically lead to significant savings in electricity costs, the financial viability of such an investment is questionable based on the NPV and IRR calculations. Both scenarios indicate negative NPV values and low negative IRR values, suggesting that the investment may not be profitable under the current assumptions. However, the integration of solar panels with a battery storage system still offers potential benefits in terms of energy independence and sustainability.
 
 ## Recommendations
 
-## Reference
+1. Explore Alternative Battery Options - Investigate other battery models or brands that might offer better efficiency, longer lifespan, or lower costs. This could improve the financial viability of the investment.
+2. Consider Government Incentives and Rebates - Look into any available government incentives, rebates, or tax credits for renewable energy installations. These can significantly offset the initial investment cost and improve the overall return on investment.
+3. Optimize Energy Consumption - Implement energy-saving measures within the household to reduce overall electricity consumption. This can enhance the effectiveness of the solar and battery system, maximizing savings and improving the financial outlook of the investment.

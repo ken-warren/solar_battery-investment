@@ -141,6 +141,11 @@ The table below shows the overall hourly calculations for the first 12 hours:
 
 - The NPV for future projections in both scenario 1 and 2 (-4465.01, -4357.52) had negative values suggesting that investing in a solar battery would be unworthy. The IRR for both scenarios (-0.05, -0.08) had a low negative value hence the profitability on the investment would be less desirable. The table below shows the NPV and IRR of the projected years
 
+|Cash Flow Methods|Scenario 1|Scenario 2|
+|---|---|---|
+|NPV|-4465.01|-4357.52|
+|IRR|-0.05|-0.08|
+
 ## Conclusion
 
 The analysis reveals that while installing a battery to store excess solar-generated electricity can theoretically lead to significant savings in electricity costs, the financial viability of such an investment is questionable based on the NPV and IRR calculations. Both scenarios indicate negative NPV values and low negative IRR values, suggesting that the investment may not be profitable under the current assumptions. However, the integration of solar panels with a battery storage system still offers potential benefits in terms of energy independence and sustainability.
